@@ -40,4 +40,7 @@ spring.jpa.hibernate.ddl-auto=create
 5.Create Templates for Browser Display 
 
 
+To add new album :
+http://localhost:8080/new
+
  
