@@ -43,4 +43,13 @@ spring.jpa.hibernate.ddl-auto=create
 To add new album :
 http://localhost:8080/new
 
+-------------------------------------------
+lab 13 :
+we have One to Many(album) and Many To one(songs) relationship 
+
+when add new album you can add songs to this album
+http://localhost:8080/new >>> to add new album and inside it we can add new songs
+
+
+
  
