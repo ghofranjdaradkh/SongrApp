@@ -1,4 +1,4 @@
-package com.ghofranjdaradkh.songer;
+package com.ghofranjdaradkh.songer.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
