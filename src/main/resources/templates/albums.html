@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -8,7 +7,6 @@
 </head>
 <body>
 <h1>ALBUMS</h1>
-
 <form th:action="@{/newAlbum}" method="post">
     <fieldset>
         <legend>Add New Album</legend>
@@ -21,25 +19,27 @@
         <label>Length</label>
         <input type="number" name="length" required>
         <label>Image URL</label>
-        <input type="url" name="imageUrl">
+        <input type="url" name="imageUrl" id="img" >
         <button type="submit" value="Add Album">add Album</button>
     </fieldset>
 </form>
-
 <ul>
     <li th:each="album : ${albums}" class="album">
         <h3><span>Album Title:</span> <span th:text="${album.title}"></span></h3>
         <h3><span>Artist:</span> <span th:text="${album.artist}"></span></h3>
         <h3><span>Song Count:</span> <span th:text="${album.songCount}"></span></h3>
         <h3><span>Length:</span> <span th:text="${album.length}"></span></h3>
-        <img th:src="${album.imageUrl}" alt="image" class="img">
+        <img th:src="${album.imageUrl}" alt="image" class="img" style="width: 90px; height: 90px;">
 
 
-        <form th:action="@{/addSong}" method="post">
+        <a th:href="@{/allsongs}">All Songs</a>
+
+
+        <form th:action="'/addSong'" method="post">
             <fieldset>
                 <legend>Add New song</legend>
-                <label for="title">song Title</label>
-                <input type="text" name="title" id="titl" required>
+                <label for="Songtitle">song Title</label>
+                <input type="text" name="Songtitle" id="Songtitle" required>
                 <label>Length</label>
                 <input type="number" name="length" required>
                 <label>trackNumber</label>
@@ -48,27 +48,12 @@
                 <button type="submit" value="Add Album">add song </button>
             </fieldset>
         </form>
-
-        <form th:action="@{/album/delete/{id}(id=${album.id})}" method="post">
-            <input type="hidden" name="delAlbum" th:value="${album.id}">
+        <form th:action="'/album/delete/'+${album.id}" method="post">
+            <input type="hidden" name="delAlbum" value="DELETE">
             <button type="submit" name="delAlbum"
                     onclick="return confirm('Are you sure you want to delete this album?')">Delete Album</button>
         </form>
-
     </li>
 </ul>
-
-
-
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
