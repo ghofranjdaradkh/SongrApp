@@ -43,15 +43,26 @@ public class songsController {
     }
 
 
+    @GetMapping("/allsongs")
+    public String listAllSongs(Model model) {
+        List<Song> songs = songRepository.findAll();
+        model.addAttribute("songs", songs);
+        return "allsongs";
+    }
+
+
+
+
+
     @GetMapping("/addSongForm")
     public String displayAddSongForm() {
         return "song";
     }
 
     @DeleteMapping("/song/delete/{id}")
-    public RedirectView deleteSong(@PathVariable Long id, Model model) {
+    public RedirectView deleteSong(@PathVariable Long id) {
         songRepository.deleteById(id);
-       return  new RedirectView("/addSong");
+        return  new RedirectView("/addSongForm");
     }
 
     }

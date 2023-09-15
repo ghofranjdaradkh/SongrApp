@@ -25,10 +25,7 @@ class SongerApplicationTests {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Autowired
-	AlbumsRepository albumsRepository;
-	@Autowired
-	songRepository songRepository;
+
 
 	@Test
 	void contextLoads() {
